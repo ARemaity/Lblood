@@ -58,6 +58,10 @@
 
         android:entries="@array/Provinces_arrays"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You Donate Before"/>
     <RadioButton android:id="@+id/radio_yes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -11,7 +11,6 @@
     <string name="login_failed">"Login failed"</string>
 
 
-
     <string-array name="bloodgroup_arrays">
         <item>A+</item>
         <item>A-</item>

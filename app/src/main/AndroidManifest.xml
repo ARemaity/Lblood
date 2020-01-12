@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fillForm"></activity>
+        <activity android:name=".requestCall"></activity>
+        <activity android:name=".fillForm" />
         <activity android:name=".resultSingle" />
         <activity android:name=".resutList" />
         <activity android:name=".search" />
-
         <activity android:name=".intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
