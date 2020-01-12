@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".fillForm"></activity>
-        <activity android:name=".viewprofile" />
         <activity android:name=".resultSingle" />
         <activity android:name=".resutList" />
         <activity android:name=".search" />
