@@ -25,7 +25,9 @@ RadioButton no;
                 //Create the intent to start another activity
                 Intent intent = new Intent(view.getContext(), intro.class);
                 startActivity(intent);
+                Toast.makeText(fillForm.this, "Submitted", Toast.LENGTH_LONG).show();
             }
+
         });
 yes=findViewById(R.id.radio_yes);
         no=findViewById(R.id.radio_no);
