@@ -2,8 +2,10 @@ package com.example.lblood;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -14,10 +16,22 @@ RadioButton no;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form);
+        Button button = (Button) findViewById(R.id.sbt);
+
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //Create the intent to start another activity
+                Intent intent = new Intent(view.getContext(), intro.class);
+                startActivity(intent);
+            }
+        });
 yes=findViewById(R.id.radio_yes);
         no=findViewById(R.id.radio_no);
     }
     public void onRadioButtonClicked(View view) {
+
 
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -37,5 +51,6 @@ yes=findViewById(R.id.radio_yes);
                 yes.setChecked(false);
                     break;
         }
+
     }
 }
