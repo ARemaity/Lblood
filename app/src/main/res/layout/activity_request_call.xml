@@ -10,17 +10,20 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Name" />
+        android:layout_margin="10dp"
+        android:hint="Enter Name" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Phone Number" />
+        android:layout_margin="10dp"
+        android:hint="Enter Phone Number" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Hospital Name" />
+        android:layout_margin="10dp"
+        android:hint="Enter Hospital Name" />
 
     <Button
         android:layout_width="wrap_content"

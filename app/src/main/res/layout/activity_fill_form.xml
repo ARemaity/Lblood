@@ -16,55 +16,64 @@
         android:id="@+id/TextViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Your Full Name"
+        android:hint="Enter Your Full Name"
+        android:layout_margin="10dp"
         android:textSize="10pt">
     </EditText>
     <EditText
         android:id="@+id/EditTextName"
         android:layout_height="wrap_content"
         android:textSize="10pt"
-        android:text="Enter Your Phone Number"
+        android:layout_margin="10dp"
+        android:hint="Enter Your Phone Number"
         android:layout_width="wrap_content">
     </EditText>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Choose Your Blood Group"/>
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_margin="10dp"
         android:entries="@array/bloodgroup_arrays"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Choose Your BirthDate"/>
     <DatePicker
         android:id="@+id/datePicker1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:calendarViewShown="false"
         android:datePickerMode="spinner" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Choose Your Location"/>
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_margin="10dp"
         android:entries="@array/Provinces_arrays"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="You Donate Before"/>
+
     <RadioButton android:id="@+id/radio_yes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="yes"
         android:onClick="onRadioButtonClicked"
         android:checked="true"
@@ -72,6 +81,7 @@
     <RadioButton android:id="@+id/radio_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="no"
         android:onClick="onRadioButtonClicked"
         android:checked="false"
@@ -79,6 +89,7 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     android:text="If You Have Any Health Problem"/>
     <EditText
         android:layout_width="match_parent"
@@ -88,6 +99,7 @@
         android:id="@+id/sbt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:text="submit" />

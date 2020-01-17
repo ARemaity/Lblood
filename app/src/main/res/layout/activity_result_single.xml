@@ -10,37 +10,44 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_margin="10dp"
         android:text="Name" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_margin="10dp"
         android:text="BloodGroup" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_margin="10dp"
         android:text="Phone Number" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_margin="10dp"
         android:text="Location" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_margin="10dp"
         android:text="He Donate Before" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="32dp"
+        android:layout_margin="10dp"
         android:text="He Have Any Health Problem" />
     <Button
         android:id="@+id/bn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:layout_gravity="center"
         android:text="contact"/>
