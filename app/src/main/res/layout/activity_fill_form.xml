@@ -9,9 +9,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-
-
     <EditText
         android:id="@+id/TextViewTitle"
         android:layout_width="wrap_content"
@@ -26,6 +23,8 @@
         android:textSize="10pt"
         android:layout_margin="10dp"
         android:hint="Enter Your Phone Number"
+        android:inputType="phone"
+        android:digits="0123456789+"
         android:layout_width="wrap_content">
     </EditText>
     <TextView
@@ -86,6 +85,19 @@
         android:onClick="onRadioButtonClicked"
         android:checked="false"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Last Donation Date"/>
+    <DatePicker
+        android:id="@+id/datePicker2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
+
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -93,8 +105,8 @@
     android:text="If You Have Any Health Problem"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="165dp" />
-
+        android:layout_margin="10dp"
+        android:layout_height="150dp" />
     <Button
         android:id="@+id/sbt"
         android:layout_width="wrap_content"
