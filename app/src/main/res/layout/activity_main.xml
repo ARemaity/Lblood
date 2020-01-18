@@ -16,7 +16,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:layout_weight="1"
-        android:src="@drawable/rcever" />
+        android:src="@drawable/donation" />
 
 
     <ImageView
