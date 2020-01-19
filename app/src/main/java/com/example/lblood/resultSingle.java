@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class resultSingle extends AppCompatActivity {
 TextView Name,BloodGroup,age,location,health;
+    String idS,NameS,BloodGroupS,ageS,locationS,healthS,numberS;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +21,14 @@ TextView Name,BloodGroup,age,location,health;
         age=findViewById(R.id.age);
         location=findViewById(R.id.address);
         health=findViewById(R.id.health);
+        Bundle bundle = getIntent().getExtras();
+        idS = bundle.getString("id");
+        Name.setText(bundle.getString("name"));
+        age.setText( bundle.getString("age"));
+        numberS = bundle.getString("number");
+        location.setText(bundle.getString("address"));
+        BloodGroup.setText( bundle.getString("blood_group"));
+        health.setText( bundle.getString("health"));
 
 
         button.setOnClickListener(new View.OnClickListener(){
@@ -27,7 +36,16 @@ TextView Name,BloodGroup,age,location,health;
             //On click function
             public void onClick(View view) {
                 //Create the intent to start another activity
+
+
+
+
+
+
+
                 Intent intent = new Intent(view.getContext(), requestCall.class);
+
+                intent.putExtra("DID", idS);
                 startActivity(intent);
             }
         });
