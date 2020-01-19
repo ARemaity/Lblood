@@ -5,8 +5,11 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -37,7 +40,14 @@ public class resutList extends AppCompatActivity {
 private  String blood="";
     private  String location="";
 
+    private int did;
+    private String name;
+    private String age;
+    private int number;
+    private String address;
+    private   String blood_group;
 
+    private   String health;
 
 
     @Override
@@ -57,10 +67,35 @@ private  String blood="";
         geturl();
 
         retrieveJSON();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                did= dataModelArrayList.get(position).getDID();
+                name= dataModelArrayList.get(position).getfullName();
+                age= dataModelArrayList.get(position).getAge();
+                number= dataModelArrayList.get(position).getNumber();
+                address= dataModelArrayList.get(position).getAddress();
+                blood_group= dataModelArrayList.get(position).getBlood_group();
+                health= dataModelArrayList.get(position).getHealth();
+
+                Toast.makeText(getApplicationContext(),Integer.toString(did),Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(resutList.this, resultSingle.class);
+                myIntent.putExtra("id", did);
+                myIntent.putExtra("name", name);
+                myIntent.putExtra("age", age);
+                myIntent.putExtra("number", number);
+                myIntent.putExtra("address", address);
+                myIntent.putExtra("blood_group", blood_group);
+                myIntent.putExtra("health", health);
+                startActivity(myIntent);
+
+
+            }
+        });
     }
     private void retrieveJSON() {
 
-        showSimpleProgressDialog(this, "Loading...","Please wait",false);
+        showSimpleProgressDialog(resutList.this, "Loading...","Please wait",false);
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLstring,
                 new Response.Listener<String>() {
                     @Override
@@ -68,55 +103,66 @@ private  String blood="";
 
                         Log.d("strrrrr", ">>" + response);
 
+
+
                         try {
 
-                            JSONObject obj = new JSONObject(response);
+
+                            JSONObject ex =new JSONObject(response);
+                            int theredata=Integer.parseInt(ex.getString("exsit"));
+                            if(theredata==1) {
+                                showSimpleProgressDialog(resutList.this, "Loading...","Please wait",false);
+                                JSONObject obj = new JSONObject(response);
 
 
-                            dataModelArrayList = new ArrayList<>();
-                            JSONArray dataArray  = obj.getJSONArray("data");
+                                dataModelArrayList = new ArrayList<>();
+                                JSONArray dataArray = obj.getJSONArray("data");
 
-                            for (int i = 0; i < dataArray.length(); i++) {
+                                for (int i = 0; i < dataArray.length(); i++) {
 
-                                RequestModel x = new RequestModel();
-                                JSONObject dataobj = dataArray.getJSONObject(i);
-                                Log.d("strrrrr", ">>" + dataobj.getString("DID"));
-                                x.setDID(Integer.parseInt(dataobj.getString("DID")));
-                                x.setFname(dataobj.getString("fname"));
-                                x.setLname(dataobj.getString("lname"));
-                                x.setNumber(Integer.parseInt(dataobj.getString("phone_number")));
-                                x.setAddress(dataobj.getString("address"));
-                                x.setDOB(dataobj.getString("DOB"));
-                                x.setBlood_group(dataobj.getString("blood_group"));
-                                x.setHealth(dataobj.getString("Health_History"));
-                                if(dataModelArrayList.isEmpty()){
-                                    Log.d("befoooooooooore", ">>>>>>>>>>>>>>>>>>0000000000000000" );
+                                    RequestModel x = new RequestModel();
+                                    JSONObject dataobj = dataArray.getJSONObject(i);
+                                    Log.d("strrrrr", ">>" + dataobj.getString("DID"));
+                                    x.setDID(Integer.parseInt(dataobj.getString("DID")));
+                                    x.setFname(dataobj.getString("fname"));
+                                    x.setLname(dataobj.getString("lname"));
+                                    x.setNumber(Integer.parseInt(dataobj.getString("phone_number")));
+                                    x.setAddress(dataobj.getString("address"));
+                                    x.setDOB(dataobj.getString("DOB"));
+                                    x.setBlood_group(dataobj.getString("blood_group"));
+                                    x.setHealth(dataobj.getString("Health_History"));
+                                    if (dataModelArrayList.isEmpty()) {
+                                        Log.d("befoooooooooore", ">>>>>>>>>>>>>>>>>>0000000000000000");
+
+                                    } else {
+
+
+                                        Log.d("befoooooooooore", ">>>>>>>>>11111111111111111111111");
+                                    }
+
+
+                                    dataModelArrayList.add(x);
+                                    if (dataModelArrayList.isEmpty()) {
+                                        Log.d("Aftrrrrrrrrr", ">>>>>>>>>>>>>>>>>>0000000000000000");
+
+
+                                    } else {
+
+
+                                        Log.d("Aftrrrrrrrr", ">>>>>>>>>11111111111111111111111");
+                                    }
 
                                 }
-                                else{
+
+                                setupListview();
+
+                            }else{
 
 
-                                    Log.d("befoooooooooore", ">>>>>>>>>11111111111111111111111" );
-                                }
-
-
-                                dataModelArrayList.add(x);
-                                if(dataModelArrayList.isEmpty()){
-                                    Log.d("Aftrrrrrrrrr", ">>>>>>>>>>>>>>>>>>0000000000000000" );
-
-
-                                }
-                                else{
-
-
-                                    Log.d("Aftrrrrrrrr", ">>>>>>>>>11111111111111111111111" );
-                                }
-
+                                Toast.makeText(getApplicationContext(), "no data to view ", Toast.LENGTH_SHORT).show();
+                                removeSimpleProgressDialog();
+                                finish();
                             }
-
-                            setupListview();
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
