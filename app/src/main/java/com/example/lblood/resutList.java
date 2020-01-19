@@ -54,7 +54,7 @@ private  String blood="";
 
 
 
-
+        geturl();
 
         retrieveJSON();
     }
@@ -141,9 +141,10 @@ private  String blood="";
 private  void geturl(){
 
     char sign =blood.charAt(blood.length() - 1);
+    char letter=blood.charAt(0);
     Log.d("////////////Char sign is ", ":"+sign );
     String f="";
-    if(sign=='+'){
+    if(sign=='P'){
         f="%2B";
 
     }else{
@@ -152,7 +153,7 @@ private  void geturl(){
 
     }
     Log.d("///////////f  is ", ":"+f );
-    URLstring+=blood+f+"&address="+location;
+    URLstring+=letter+f+"&address="+location;
     Log.d("//////////Url  is ", ":"+URLstring );
 }
     private void setupListview(){

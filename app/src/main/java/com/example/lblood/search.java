@@ -143,14 +143,7 @@ bloodSP.setAdapter(bloodAdapter);
 
                 {
 
-                    "Akkar",
-                            "Nabatieh",
-                            "Baalback-Hermel",
-                            "Beirut",
-                            "Beqaa",
-                            "Mount Lebanon",
-                            "South Lebanon",
-                            "North Lebanon"
+
 
                     case 0:
 
@@ -216,8 +209,8 @@ bloodSP.setAdapter(bloodAdapter);
             public void onClick(View view) {
                 //Create the intent to start another activity
                 Intent intent = new Intent(view.getContext(), resutList.class);
-                intent.putExtra("blood",);
-                intent.putExtra("location", locations);
+                intent.putExtra("blood",choosinBlood);
+                intent.putExtra("location", choosingLocation);
 
                 Log.d("///////////////",choosinBlood);
                 Log.d("///////////////",choosingLocation);
