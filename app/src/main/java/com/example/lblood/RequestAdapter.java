@@ -1,15 +1,16 @@
 package com.example.lblood;
 
 import android.content.Context;
-import android.graphics.Color;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RequestAdapter {
+public class RequestAdapter extends BaseAdapter {
 
 
     private Context context;
@@ -42,7 +43,6 @@ public class RequestAdapter {
         return dataModelArrayList.size();
     }
 
-    @Override
     public Object getItem(int position) {
         return dataModelArrayList.get(position);
     }
@@ -56,46 +56,34 @@ public class RequestAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
+        // the getTag returns the viewHolder object set as a tag to the view
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_resut_list, null, true);
+            convertView = inflater.inflate(R.layout.resultlist, null, true);
 
 
-            holder.id = (TextView) convertView.findViewById(R.id.text1);
-            holder.st = (TextView) convertView.findViewById(R.id.text2);
+            holder.name = (TextView) convertView.findViewById(R.id.text1);
+            holder.age = (TextView) convertView.findViewById(R.id.text2);
 
             convertView.setTag(holder);
-        }else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)convertView.getTag();
-        }
+        }else holder = (ViewHolder) convertView.getTag();
 
 
-        holder.id.setText(dataModelArrayList.get(position).getMonth());
-
-        if( dataModelArrayList.get(position).getPayment_state()==true){
-
-            holder.st.setText("Payed");
-            holder.st.setTextColor(Color.parseColor("#59f442"));
-
-        }
-        else{
-
-            holder.st.setText("not Payed");
-
-            holder.st.setTextColor(Color.parseColor("#f20909"));
+        holder.name.setText(dataModelArrayList.get(position).getfullName());
 
 
-        }
+         holder.age.setText(dataModelArrayList.get(position).getAge());
+
+
 
         return convertView;
     }
 
     private class ViewHolder {
 
-        protected TextView  id,st;
+        protected TextView  name,age;
 
     }
 
