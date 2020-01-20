@@ -79,7 +79,7 @@ private  String blood="";
 
                 Toast.makeText(getApplicationContext(),Integer.toString(did),Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(resutList.this, resultSingle.class);
-                myIntent.putExtra("id", did);
+                myIntent.putExtra("DID", did);
                 myIntent.putExtra("name", name);
                 myIntent.putExtra("age", age);
                 myIntent.putExtra("number", number);
