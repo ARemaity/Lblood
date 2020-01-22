@@ -73,6 +73,7 @@ private  String blood="";
                 name= dataModelArrayList.get(position).getfullName();
                 age= dataModelArrayList.get(position).getAge();
                 number= dataModelArrayList.get(position).getNumber();
+                Log.d("////////////////////////////////////phoneS  is ", ":"+number );
                 address= dataModelArrayList.get(position).getAddress();
                 blood_group= dataModelArrayList.get(position).getBlood_group();
                 health= dataModelArrayList.get(position).getHealth();

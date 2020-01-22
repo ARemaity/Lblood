@@ -22,8 +22,8 @@ public class search extends AppCompatActivity {
     String[] locations = new String[]{
 
             "Akkar",
-        "Nabatieh",
-        "Baalback-Hermel",
+            "Nabatieh",
+            "Baalback-Hermel",
         "Beirut",
         "Beqaa",
   "Mount Lebanon",

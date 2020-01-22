@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import static android.Manifest.permission.CALL_PHONE;
-
 public class resultSingle extends AppCompatActivity {
 TextView Name,BloodGroup,age,location,health;
     String NameS,BloodGroupS,ageS,locationS,healthS;
@@ -33,6 +31,7 @@ TextView Name,BloodGroup,age,location,health;
         Name.setText(bundle.getString("name"));
         age.setText( bundle.getString("age"));
         numberS = bundle.getInt("number");
+        Log.d("result", ">>" + numberS);
         location.setText(bundle.getString("address"));
         BloodGroup.setText( bundle.getString("blood_group"));
         health.setText( bundle.getString("health"));
@@ -43,11 +42,11 @@ TextView Name,BloodGroup,age,location,health;
             //On click function
             public void onClick(View view) {
 
-                requestPermissions(new String[]{CALL_PHONE}, 1);
 
                 Intent intent = new Intent(view.getContext(), requestCall.class);
 
                 intent.putExtra("DID", idS);
+                intent.putExtra("number", numberS);
                 startActivity(intent);
             }
         });

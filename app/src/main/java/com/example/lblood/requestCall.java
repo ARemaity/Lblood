@@ -63,7 +63,7 @@ public class requestCall extends AppCompatActivity {
                 NameS = Name.getText().toString().trim();
                 hospitalS = hospital.getText().toString().trim();
                 phoneS = phone.getText().toString().trim();
-                Log.d("//////////phoneS  is ", ":"+phoneS );
+                Log.d("////////////////////////////////////phoneS  is ", ":"+phoneDoner );
 
                 progressDialog.setMessage("Please Wait, We are Inserting Your Data on Server");
                 progressDialog.show();
@@ -87,6 +87,7 @@ public class requestCall extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         Intent i = new Intent(Intent.ACTION_CALL);
+
                                         i.setData(Uri.parse("tel:"+phoneDoner));
 
                                         if (ContextCompat.checkSelfPermission(getApplicationContext(), CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
