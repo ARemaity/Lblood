@@ -1,0 +1,96 @@
+7F*ldpZicopYCp)q3&S&
+admin123
+
+DB Name           |	DB User	       | DB Host	 
+id12214077_lblood |	id12214077_root| localhost
+
+
+
+	- is    %2D
+
+    + is 	%2B
+
+    get the date in last row of blood tbl of doner exsite with respect to its did with table doner then calculte thge difference between two date the cuurent -the databse date if its more than 6month it can else it can't 
+
+
+
+
+
+
+
+
+    <?php
+
+
+ if (isset($_GET['id'])) {
+    $code = $_GET['code'];
+   
+    if($code=='j32fncf44g'){
+include 'header/header.php';
+
+
+
+
+   echo $_GET['id'];
+$servernamess = "localhost";
+$usernamess = "root";
+$passwordss = "";
+$dbss = "donor";
+
+
+$connect=mysqli_connect($servernamess,$usernamess,$passwordss,$dbss);
+if(mysqli_connect_error()){
+die("cannot connect to database".mysql_connect_error())	;	
+}
+
+$insert = mysqli_query($connect, "UPDATE doner SET Last_Date = CURDATE()  WHERE doner.DID =".$_GET['id']."") or die(mysqli_error($connect));
+
+
+include 'footer/footer.php';
+}} ?>
+
+
+
+
+ public function verfiy($did){
+        echo "////////////////////////////////////////////////////////////////////////
+        
+        
+        
+        
+        /////////////////////
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /////////////////////////".$did;
+
+        $servernamess = "localhost";
+        $usernamess = "root";
+        $passwordss = "";
+        $dbss = "donor";
+        
+        
+        $connect=mysqli_connect($servernamess,$usernamess,$passwordss,$dbss);
+        if(mysqli_connect_error()){
+        die("cannot connect to database".mysql_connect_error())	;	
+        }
+
+        $insert = mysqli_query($connect, "UPDATE `doner` SET `Last_Date` = CURDATE()  WHERE `doner`.`DID`=".$did) ;
+        if($insert)
+        {
+                
+            echo " <p class='h1'>Success verfied </p>";
+       
+        }else{
+
+
+            echo "<p class='h1'>Error</p>";
+           
+        }
+        
