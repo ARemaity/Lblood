@@ -15,14 +15,7 @@ public class intro extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-//        ImageView donner = (ImageView) findViewById(R.id.imageView2);
-//        donner.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Intent myIntent = new Intent(intro.this, fillForm.class);
-//
-//                intro.this.startActivity(myIntent);
-//            }
-//        });
+
 
         ImageView donate = (ImageView) findViewById(R.id.imageView1);
         donate.setOnClickListener(new View.OnClickListener() {
